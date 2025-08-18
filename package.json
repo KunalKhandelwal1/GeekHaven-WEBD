@@ -1,0 +1,32 @@
+{
+  "name": "webd-geekheaven",
+  "version": "1.0.0",
+  "description": "calm",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KunalKhandelwal1/GeekHaven-WEBD.git"
+  },
+  "author": "kunal k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KunalKhandelwal1/GeekHaven-WEBD/issues"
+  },
+  "homepage": "https://github.com/KunalKhandelwal1/GeekHaven-WEBD#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.18.0",
+    "mongoose": "^8.17.1",
+    "nodemon": "^3.1.10"
+  }
+}

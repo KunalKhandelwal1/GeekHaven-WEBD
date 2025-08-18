@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title Page</title>
+    <%- include("./partials/head") %>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #f9fafb;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 30px 0;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #111827;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        min-height: 180px; 
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12);
+      }
+
+      .card h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1f2937;
+        text-align: center;
+        flex-grow: 1;
+        margin-bottom: 15px;
+        line-height: 1.4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-wrap: balance;
+      }
+
+      .card button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        align-self: center;
+        width: 100%;
+      }
+
+      .card button:hover {
+        background: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <h1>Select a Topic</h1>
+
+    <div class="grid">
+      <% categories.forEach(c => { %>
+        <form action="/title/<%= c._id %>" method="get" class="card">
+          <h2><%= c.title %></h2>
+          <button type="submit">Explore</button>
+        </form>
+      <% }) %>
+    </div>
+
+    <%- include("./partials/script") %>
+  </body>
+</html>

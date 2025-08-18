@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questions</title>
+    <%- include("./partials/head") %>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+      }
+
+      .questions-container {
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .question-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease;
+      }
+
+      .question-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .question-card h2 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #222;
+      }
+
+      .question-card p {
+        color: #666;
+        margin: 6px 0 15px;
+        font-size: 14px;
+      }
+
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .links a {
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-size: 14px;
+        background: #007bff;
+        color: #fff;
+        transition: background 0.3s;
+      }
+
+      .links a:hover {
+        background: #0056b3;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+
+    <div class="questions-container">
+      <% Questions.forEach(q => { %>
+        <div class="question-card">
+          <h2><%= q.title %></h2>
+          <p>Difficulty: <%= q.difficulty %></p>
+          
+          <div class="links">
+            <a href="<%= q.url1 %>" target="_blank">Solve 1</a>
+            <a href="<%= q.url2 %>" target="_blank">Solve 2</a>
+            <a href="<%= q.youtube %>" target="_blank">Video Editorial</a>
+          </div>
+
+          <div class="actions">
+            <%- include("./partials/bookmark.ejs") %>
+            <%- include("./partials/done.ejs") %>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+    <script></script>
+    <%- include("./partials/script") %>
+  </body>
+</html>
